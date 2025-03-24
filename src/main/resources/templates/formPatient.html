@@ -9,20 +9,35 @@
 </head>
 <body>
         <div layout:fragment="content1">
-           <form method="post" th:action="@{save}">
-               <div>
-                   <label>Nom</label>
-                   <input class="form-control" type="text" name="nom" th:value="${patient.nom}">
-                   <span th:errors="${patient.nom }"></span>
-               </div>
+            <div class="col-md-6 offset-3">
+                <form method="post" th:action="@{/patient/save}">
+                    <div>
+                        <label for="nom">Nom</label>
+                        <input id="nom" class="form-control" type="text" name="nom" th:value="${patient.nom}">
+                        <span th:errors="${patient.nom}"></span>
+                    </div>
 
-               <div>
-                   <label>Date de Naissance</label>
-                   <input class="form-control" type="date" name="dateNaissance" th:value="${patient.dateNaissance}">
-                   <span th:errors="${patient.dateNaissance }"></span>
-               </div>
+                    <div>
+                        <label for="dateNaissance">Date de Naissance</label>
+                        <input id="dateNaissance" class="form-control" type="date" name="dateNaissance" th:value="${patient.dateNaissance}">
+                        <span th:errors="${patient.dateNaissance}"></span>
+                    </div>
 
-           </form>
+                    <div>
+                        <label for="malade">Malade</label>
+                        <input type="checkbox" id="malade" class="form-check"  name="malade" th:checked="${patient.malade}">
+                        <span th:errors="${patient.malade}"></span>
+                    </div>
+
+                    <div>
+                        <label for="score">Score</label>
+                        <input id="score" class="form-control" type="text" name="score" th:value="${patient.score}">
+                        <span th:errors="${patient.score}"></span>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Save</button>
+
+                </form>
+            </div>
         </div>
 </body>
 </html>
