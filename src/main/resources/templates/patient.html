@@ -42,6 +42,11 @@
                                         Delete
                                     </a>
                                 </td>
+                                <td>
+                                    <a  th:href="@{/patient/editPatient(id=${p.id},keyword = ${ky}, page = ${currentPage})}" class="btn btn-info">
+                                        Edit
+                                    </a>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
