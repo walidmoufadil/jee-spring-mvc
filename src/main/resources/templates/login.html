@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
 </head>
 <body>
-$END$
+
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    Authentication
+                </div>
+                <div class="card-body">
+                    <form method="post" th:action="@{/login}">
+                        <div class="mb-3 mt-3" >
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Username" >
+                        </div>
+                        <div class="mb-3 mt-3" >
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" placeholder="password" >
+                        </div>
+
+
+                        <button type="submit" class="btn btn-outline-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 </body>
 </html>
