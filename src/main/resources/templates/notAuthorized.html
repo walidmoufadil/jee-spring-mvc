@@ -9,54 +9,10 @@
 </head>
 <body>
         <div layout:fragment="content1">
-            <div class="container mt-2">
-                <div class="card">
-                    <div class="card-header">Liste Patients</div>
-                    <div class="card-body">
-                        <form method="get" th:action="@{/user/index}" >
-                            <label >Keyword</label>
-                            <input type="text" name="keyword" th:value="${ky}" />
-                            <button type="submit" class="btn btn-outline-primary">
-                                Search
-                            </button>
-                        </form>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>NOM</th>
-                                <th>DATE</th>
-                                <th>MALADE</th>
-                                <th>SCORE</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="p:${patients}">
-                                <td th:text="${p.id}"></td>
-                                <td th:text="${p.nom}"></td>
-                                <td th:text="${p.dateNaissance}"></td>
-                                <td th:text="${p.malade}"></td>
-                                <td th:text="${p.score}"></td>
-                                <td th:if="${#authorization.expression('hasRole(''admin'')')}">
-                                    <a onclick="return confirm('etes vous sure ?')" th:href="@{/admin/delete(id=${p.id}, keyword = ${ky}, page = ${currentPage})}" class="btn btn-danger">
-                                        Delete
-                                    </a>
-                                </td>
-                                <td th:if="${#authorization.expression('hasRole(''admin'')')}">
-                                    <a  th:href="@{/admin/editPatient(id=${p.id},keyword = ${ky}, page = ${currentPage})}" class="btn btn-info">
-                                        Edit
-                                    </a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <ul class="nav nav-pills">
-                        <li th:each="page,status:${pages}">
-                            <a th:href="@{/user/index(page=${status.index},keyword=${ky})}" th:class="${ currentPage == status.index ? 'btn btn-primary ms-1':'btn btn-outline-primary ms-1'}" th:text="${status.index}"></a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="alert alert-danger m-3">
+                <h2>
+                    Not Authorized
+                </h2>
             </div>
         </div>
 </body>
